@@ -1,0 +1,117 @@
+<html>
+  <head>
+    <title>Brute Force Login Example</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href=
+"https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="login.css">
+  </head>
+  <body>
+
+<?php
+// (A) GET THE VARIABLES
+    $password1 = $_GET["password"];
+    $username1 = $_GET["username"];
+    $password2 = $_POST["password"];
+    $username2 = $_POST["username"];
+
+echo "===GET=username1===</br>";
+echo $username1;
+echo "</br>";
+echo strlen($username1);
+echo "</br>";
+echo $password1;
+echo "</br>";
+echo "===POST=username2===</br>";
+echo $username2;
+echo "</br>";
+echo strlen($username2);
+echo "</br>";
+echo $password2;
+echo "</br>";
+echo "=====================</br>";
+
+// SET Primary variables with values
+if(strlen($username1) > 0)
+{
+  $username = $username1;
+  $password = $password1;
+  
+  echo "==username1 > 0 ==</br>";
+echo $username;
+echo "</br>";
+echo $password;
+echo "</br>";
+}
+else
+{ 
+  if(strlen($username2) >0)
+  {
+    $username = $username2;
+    $password = $password2;
+    
+
+echo "==username2 >0 ==</br>";
+echo $username;
+echo "</br>";
+echo $password;
+echo "</br>";
+
+    
+  }
+  else
+  {
+    $username = "blank";
+    $password = "blank";
+
+echo "==username1&2 =0 ==</br>";
+echo $username;
+echo "</br>";
+echo $password;
+echo "</br>";
+
+    
+  }
+  
+}
+
+// Check that details are correct
+if(($username == 'username') &&
+   ($password == 'p@ssw0rd'))
+{
+  $logedIn = "TRUE";
+}
+else
+{
+  if(($username == 'bob') && 
+     ($password == 'password10'))
+  {
+    $logedIn = "TRUE";
+  }
+  else
+  {
+    $logedIn = "False";
+  }
+}
+
+if($logedIn == "TRUE")
+{
+  header("location: adminpage.php");
+}
+else
+{
+  die();
+}
+
+
+?>
+
+    <!-- print variable -->
+    <p>Username: <?php echo $username; ?></p>
+    <p>Password: <?php echo $password; ?></p>
+    <p>Logged in: <?php echo $logedIn; ?></p>
+  </body>
+</html>
+
